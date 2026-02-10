@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: MilkData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   ingredientName: milk
+  type: 3
+  plateOffset: {x: 0, y: 0, z: 0}

@@ -10,6 +10,7 @@ public class PickupItem : MonoBehaviour
     public Transform rightGrip;
     public IngredientData ingredientData;
     public GameObject plateVisualPrefab;
+    public GameObject trayVisualPrefab;
 
     void Awake()
     {

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: FrenchFriesData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   ingredientName: french_fries
+  type: 1
+  plateOffset: {x: 0, y: 0, z: 0}

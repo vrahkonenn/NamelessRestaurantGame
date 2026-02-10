@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 571493e349711224e93ec775b28f4c49, type: 3}
-  m_Name: TomatoData
+  m_Name: PlateData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  ingredientName: tomato
-  type: 2
+  ingredientName: Plate
+  type: 4
   plateOffset: {x: 0, y: 0, z: 0}

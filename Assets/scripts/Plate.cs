@@ -4,20 +4,36 @@ using UnityEngine;
 public class Plate : MonoBehaviour
 {
     public Transform ingredientParent;
+    public List<IngredientType> allowedTypes;
 
-    private List<IngredientData> ingredients = new List<IngredientData>();
+    // Käytetään tätä estämään duplikaatit
+    private HashSet<IngredientType> usedTypes = new HashSet<IngredientType>();
 
-    public void AddIngredient(PickupItem item)
-    {   
-        Debug.Log("Add ingredientissä");
+    public bool AddIngredient(PickupItem item)
+    {
         if (item.ingredientData == null)
+            return false;
+
+        IngredientType type = item.ingredientData.type;
+
+        // Onko tyyppi sallittu?
+        if (!allowedTypes.Contains(type))
         {
-            Debug.Log("IngredientData puuttuu!");
-            return;
+            Debug.Log("Tätä ei voi laittaa lautaselle!");
+            return false;
         }
 
-        ingredients.Add(item.ingredientData);
+        // 🔒 Onko samaa tyyppiä jo lautasella?
+        if (usedTypes.Contains(type))
+        {
+            Debug.Log("Tätä tyyppiä on jo lautasella!");
+            return false;
+        }
 
+        // Lisää tyyppi käytetyksi
+        usedTypes.Add(type);
+
+        // 🔥 Spawn täsmälleen samalla tavalla kuin ennen
         if (item.plateVisualPrefab != null && ingredientParent != null)
         {
             Instantiate(item.plateVisualPrefab, ingredientParent);
@@ -27,6 +43,6 @@ public class Plate : MonoBehaviour
             Debug.Log("PlateVisualPrefab tai IngredientParent puuttuu!");
         }
 
-        Destroy(item.gameObject);
+        return true;
     }
 }

@@ -25,7 +25,7 @@ public class PlayerInteractor : MonoBehaviour
             HandleHand(ref rightHeldItem, rightHoldPoint, false);
         }
     }
-
+   
     void HandleHand(ref PickupItem heldItem, Transform holdPoint, bool isLeftHand)
     {
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
@@ -40,10 +40,32 @@ public class PlayerInteractor : MonoBehaviour
                 if (plate != null)
                 {
                     Debug.Log("Osui lautaseen");
-                    plate.AddIngredient(heldItem);
-                    heldItem = null;
+                    bool success = plate.AddIngredient(heldItem);
+
+                    if (success)
+                    {
+                        Destroy(heldItem.gameObject);
+                        heldItem = null;
+                    }
                     return;
                 }
+
+                Tray tray = hit.collider.GetComponentInParent<Tray>();
+                if (tray != null)
+                {
+                    bool success = tray.AddItem(heldItem);
+                    if (success)
+                    {
+                        if (heldItem.ingredientData.type == IngredientType.Drink)
+                        {
+                            Destroy(heldItem.gameObject);
+                        }
+
+                        heldItem = null;
+                    }
+                    return;
+                }
+
             }
 
             // 🔥 2. Jos käsi on tyhjä → pickup
