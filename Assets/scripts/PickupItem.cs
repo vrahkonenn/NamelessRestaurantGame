@@ -8,6 +8,7 @@ public class PickupItem : MonoBehaviour
     public Transform singleGrip;
     public Transform leftGrip;
     public Transform rightGrip;
+
     public IngredientData ingredientData;
     public GameObject plateVisualPrefab;
     public GameObject trayVisualPrefab;
@@ -16,37 +17,50 @@ public class PickupItem : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+
+        if (GetComponent<Outline>() == null)
+        {
+            Outline outline = gameObject.AddComponent<Outline>();
+            outline.enabled = false;
+            outline.OutlineMode = Outline.Mode.OutlineAll;
+            outline.OutlineColor = Color.yellow;
+            outline.OutlineWidth = 7;
+        }
+
+        if (GetComponent<Interactable>() == null)
+        {
+            gameObject.AddComponent<Interactable>();
+        }
     }
 
-public void PickUp(Transform holdPoint, bool isLeftHand)
-{
-    rb.isKinematic = true;
-    col.enabled = false;
-
-    transform.SetParent(holdPoint);
-    transform.localScale = Vector3.one;
-
-    Transform chosenGrip = null;
-
-    if (isLeftHand && leftGrip != null)
-        chosenGrip = leftGrip;
-    else if (!isLeftHand && rightGrip != null)
-        chosenGrip = rightGrip;
-    else if (singleGrip != null)
-        chosenGrip = singleGrip;
-
-    if (chosenGrip != null)
+    public void PickUp(Transform holdPoint, bool isLeftHand)
     {
-        transform.localPosition = -chosenGrip.localPosition;
-        transform.localRotation = Quaternion.Inverse(chosenGrip.localRotation);
-    }
-    else
-    {
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
-    }
-}
+        rb.isKinematic = true;
+        col.enabled = false;
 
+        transform.SetParent(holdPoint);
+        transform.localScale = Vector3.one;
+
+        Transform chosenGrip = null;
+
+        if (isLeftHand && leftGrip != null)
+            chosenGrip = leftGrip;
+        else if (!isLeftHand && rightGrip != null)
+            chosenGrip = rightGrip;
+        else if (singleGrip != null)
+            chosenGrip = singleGrip;
+
+        if (chosenGrip != null)
+        {
+            transform.localPosition = -chosenGrip.localPosition;
+            transform.localRotation = Quaternion.Inverse(chosenGrip.localRotation);
+        }
+        else
+        {
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
+        }
+    }
 
     public void Drop()
     {

@@ -5,6 +5,11 @@ public class Tray : MonoBehaviour
     public Transform plateSlot;
     public Transform drinkSlot;
 
+    private IngredientData mainCourse;
+    private IngredientData side;
+    private IngredientData salad;
+    private IngredientData drink;
+
     private bool hasPlate = false;
     private bool hasDrink = false;
 
@@ -19,14 +24,19 @@ public class Tray : MonoBehaviour
         if (type == IngredientType.Plate)
         {
             if (hasPlate)
-            {
-                Debug.Log("Tarjottimella on jo lautanen!");
                 return false;
-            }
+
+            Plate plate = item.GetComponent<Plate>();
+            if (plate == null)
+                return false;
+
+            // 🔥 KOPIOIDAAN DATA LAUTASELTA
+            mainCourse = plate.GetIngredient(IngredientType.MainCourse);
+            side = plate.GetIngredient(IngredientType.Side);
+            salad = plate.GetIngredient(IngredientType.Salad);
 
             hasPlate = true;
 
-            // Siirrä oikea lautanen tarjottimelle
             item.transform.SetParent(plateSlot);
             item.transform.localPosition = Vector3.zero;
             item.transform.localRotation = Quaternion.identity;
@@ -48,21 +58,41 @@ public class Tray : MonoBehaviour
         if (type == IngredientType.Drink)
         {
             if (hasDrink)
-            {
-                Debug.Log("Tarjottimella on jo juoma!");
                 return false;
-            }
 
             hasDrink = true;
+            drink = item.ingredientData;
 
             if (item.trayVisualPrefab != null && drinkSlot != null)
-            {
                 Instantiate(item.trayVisualPrefab, drinkSlot);
-            }
 
             return true;
         }
 
         return false;
+    }
+
+    // 🔎 Getterit OrderDataa varten
+
+    public string GetMainCourseID()
+        => mainCourse != null ? mainCourse.id : null;
+
+    public string GetSideID()
+        => side != null ? side.id : null;
+
+    public string GetSaladID()
+        => salad != null ? salad.id : null;
+
+    public string GetDrinkID()
+        => drink != null ? drink.id : null;
+
+    public void ClearTray()
+    {
+        mainCourse = null;
+        side = null;
+        salad = null;
+        drink = null;
+        hasPlate = false;
+        hasDrink = false;
     }
 }

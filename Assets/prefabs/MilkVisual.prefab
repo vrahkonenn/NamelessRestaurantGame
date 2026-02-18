@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4651857146032152021}
   - component: {fileID: 4503277352350333506}
   - component: {fileID: 5397527925013829360}
-  - component: {fileID: 2581152579255862154}
+  - component: {fileID: 5907808270324876562}
   m_Layer: 6
   m_Name: MilkVisual
   m_TagString: Untagged
@@ -114,7 +114,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4417284452157709687, guid: 95cc2a6335cea8246b76bb24b6c4476e, type: 3}
---- !u!114 &2581152579255862154
+--- !u!114 &5907808270324876562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +123,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4351932462766080097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d6b2d0190dc99743a03c2479446c5a3, type: 3}
+  m_Script: {fileID: 11500000, guid: c036f7a937bc21644bc6af44eda87dad, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IngredientSource
-  itemPrefab: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::PickupItem
+  singleGrip: {fileID: 0}
+  leftGrip: {fileID: 0}
+  rightGrip: {fileID: 0}
+  ingredientData: {fileID: 11400000, guid: acceb4447f808ec4ab0cc5d71b10e038, type: 2}
+  plateVisualPrefab: {fileID: 0}
+  trayVisualPrefab: {fileID: 0}

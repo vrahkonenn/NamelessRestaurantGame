@@ -6,8 +6,11 @@ public class Plate : MonoBehaviour
     public Transform ingredientParent;
     public List<IngredientType> allowedTypes;
 
-    // Käytetään tätä estämään duplikaatit
     private HashSet<IngredientType> usedTypes = new HashSet<IngredientType>();
+
+    // 🔥 TÄMÄ ON TÄRKEÄ
+    private Dictionary<IngredientType, IngredientData> ingredients =
+        new Dictionary<IngredientType, IngredientData>();
 
     public bool AddIngredient(PickupItem item)
     {
@@ -16,33 +19,35 @@ public class Plate : MonoBehaviour
 
         IngredientType type = item.ingredientData.type;
 
-        // Onko tyyppi sallittu?
         if (!allowedTypes.Contains(type))
-        {
-            Debug.Log("Tätä ei voi laittaa lautaselle!");
             return false;
-        }
 
-        // 🔒 Onko samaa tyyppiä jo lautasella?
         if (usedTypes.Contains(type))
-        {
-            Debug.Log("Tätä tyyppiä on jo lautasella!");
             return false;
-        }
 
-        // Lisää tyyppi käytetyksi
         usedTypes.Add(type);
 
-        // 🔥 Spawn täsmälleen samalla tavalla kuin ennen
+        // 🔥 TALLENNETAAN OIKEA DATA
+        ingredients[type] = item.ingredientData;
+
         if (item.plateVisualPrefab != null && ingredientParent != null)
-        {
             Instantiate(item.plateVisualPrefab, ingredientParent);
-        }
-        else
-        {
-            Debug.Log("PlateVisualPrefab tai IngredientParent puuttuu!");
-        }
 
         return true;
+    }
+
+    // 🔎 Getterit tarjottimelle
+    public IngredientData GetIngredient(IngredientType type)
+    {
+        if (ingredients.ContainsKey(type))
+            return ingredients[type];
+
+        return null;
+    }
+
+    public void ClearPlate()
+    {
+        ingredients.Clear();
+        usedTypes.Clear();
     }
 }

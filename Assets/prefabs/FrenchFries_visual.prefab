@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7206308948248316254}
   - component: {fileID: 4133776487697441063}
   - component: {fileID: 3559380994703269091}
+  - component: {fileID: 2689238865131354923}
   m_Layer: 6
   m_Name: FrenchFries_visual
   m_TagString: Untagged
@@ -91,6 +92,24 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2689238865131354923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191923085066378633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c036f7a937bc21644bc6af44eda87dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupItem
+  singleGrip: {fileID: 0}
+  leftGrip: {fileID: 0}
+  rightGrip: {fileID: 0}
+  ingredientData: {fileID: 11400000, guid: b609fc223dfd1204884595c5df97310b, type: 2}
+  plateVisualPrefab: {fileID: 0}
+  trayVisualPrefab: {fileID: 0}
 --- !u!1 &5258413939354565631
 GameObject:
   m_ObjectHideFlags: 0

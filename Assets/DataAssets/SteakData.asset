@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571493e349711224e93ec775b28f4c49, type: 3}
   m_Name: SteakData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
+  id: RawSteak
   ingredientName: steak
+  cookedPrefab: {fileID: 5284680436814351294, guid: 6433613099fa34845ad8f12c952882d6, type: 3}
+  type: 0
+  plateOffset: {x: 0, y: 0, z: 0}
