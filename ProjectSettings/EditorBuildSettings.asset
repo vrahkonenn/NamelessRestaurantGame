@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/ravintola.unity
+    path: Assets/Scenes/Start.unity
+    guid: 079858362e2b4b7479fd541ca9b5c3eb
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
     guid: 131998b34bdeac2458dd95c8e6bf974d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

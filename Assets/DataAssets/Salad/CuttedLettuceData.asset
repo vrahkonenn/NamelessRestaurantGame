@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CuttedLettuceData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: CuttedLettuce
-  ingredientName: CuttedLettuce
+  ingredientName: Pilkottu salaatti
   cookedPrefab: {fileID: 0}
   type: 2
   plateOffset: {x: 0, y: 0, z: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FrenchFriesData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: FrenchFries
-  ingredientName: french_fries
+  ingredientName: Ranskalaiset
   cookedPrefab: {fileID: 0}
   type: 1
   plateOffset: {x: 0, y: 0, z: 0}

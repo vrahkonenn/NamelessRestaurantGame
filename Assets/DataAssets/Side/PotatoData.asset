@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PotatoData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: Potato
-  ingredientName: Potato
+  ingredientName: Peruna
   cookedPrefab: {fileID: 0}
   type: 1
   plateOffset: {x: 0, y: 0, z: 0}

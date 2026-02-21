@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaterBottleData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: WaterBottle
-  ingredientName: WaterBottle
+  ingredientName: Vesipullo
   cookedPrefab: {fileID: 0}
   type: 3
   plateOffset: {x: 0, y: 0, z: 0}

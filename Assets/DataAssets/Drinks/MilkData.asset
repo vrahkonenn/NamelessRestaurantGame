@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MilkData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: Milk
-  ingredientName: Milk
+  ingredientName: Maito
   cookedPrefab: {fileID: 0}
   type: 3
   plateOffset: {x: 0, y: 0, z: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CuttedTomatoData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: CuttedTomato
-  ingredientName: CuttedTomato
+  ingredientName: Pilkottu tomaatti
   cookedPrefab: {fileID: 8005412521807615812, guid: c1d2e8ea608e99a429bee72b63019eab, type: 3}
   type: 2
   plateOffset: {x: 0, y: 0, z: 0}

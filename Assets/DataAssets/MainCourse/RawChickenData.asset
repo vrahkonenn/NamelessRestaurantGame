@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RawChickenData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: RawChicken
-  ingredientName: RawChicken
+  ingredientName: Raaka kana
   cookedPrefab: {fileID: 6713592283081289668, guid: e85015a1b574e4e468614bfde4c11c7d, type: 3}
   type: 0
   plateOffset: {x: 0, y: 0, z: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CookedSteakData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: cookedSteak
-  ingredientName: CookedSteak
+  ingredientName: Paistettu pihvi
   cookedPrefab: {fileID: 0}
   type: 0
   plateOffset: {x: 0, y: 0, z: 0}

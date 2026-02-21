@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CarrotData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: Carrot
-  ingredientName: Carrot
+  ingredientName: Porkkana
   cookedPrefab: {fileID: 6179444419623884426, guid: a890a80abf337cf47a5cbe686fa1cde8, type: 3}
   type: 2
   plateOffset: {x: 0, y: 0, z: 0}

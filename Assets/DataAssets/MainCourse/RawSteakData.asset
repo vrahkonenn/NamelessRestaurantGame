@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RawSteakData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   id: RawSteak
-  ingredientName: steak
+  ingredientName: Raaka pihvi
   cookedPrefab: {fileID: 5284680436814351294, guid: 6433613099fa34845ad8f12c952882d6, type: 3}
   type: 0
   plateOffset: {x: 0, y: 0, z: 0}

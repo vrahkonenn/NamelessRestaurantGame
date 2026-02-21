@@ -30,6 +30,7 @@ public class Customer : MonoBehaviour
 
     [Header("UI")]
     public TextMeshPro timerText;
+    public TextMeshPro CustomerOrderText;
 
     private enum TipTier { None, Small, Big }
     private TipTier currentTipTier = TipTier.None;
@@ -203,11 +204,18 @@ public class Customer : MonoBehaviour
             currentOrder = OrderManager.Instance.GenerateOrder();
             hasOrdered = true;
 
+            string corderText =  
+                        currentOrder.mainCourse.ingredientName + "\n" + 
+                        currentOrder.side.ingredientName + "\n" +
+                        currentOrder.salad.ingredientName + "\n" +
+                        currentOrder.drink.ingredientName;
+            CustomerOrderText.text = corderText;
+
             waitingForService = false;
             waitingForFood = true;
 
             StartTimer(foodWaitTime);
-
+            
             string orderText = $"Table {assignedTable.tableNumber} | " + 
                         currentOrder.mainCourse.ingredientName + " " + 
                         currentOrder.side.ingredientName + " " +
@@ -265,6 +273,8 @@ public class Customer : MonoBehaviour
     {
         if (timerText != null)
             timerText.text = "Eating...";
+            CustomerOrderText.text = "";
+
 
         yield return new WaitForSeconds(10f);
 
@@ -280,7 +290,6 @@ public class Customer : MonoBehaviour
 
         waitingForService = false;
         waitingForFood = false;
-
         if (timerText != null)
             timerText.gameObject.SetActive(true);
             timerText.text = "FUCK YOU!";
